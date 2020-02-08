@@ -2,7 +2,8 @@
 
 I created this project for my INFO 101 class at University of Massachusetts, Amherst.
 
-1.	The program is a GPA calculator. The user is asked to provide the following information:
+The program is a GPA calculator. The user is asked to provide the following information:
+
 A.	The number of courses the user has completed.
 B.	The number of credit hours for each course.
 C.	The letter grade for each course.
