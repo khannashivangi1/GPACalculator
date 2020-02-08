@@ -2,6 +2,8 @@
 
 I created this project for my INFO 101 class at University of Massachusetts, Amherst.
 
+I used Python a the programming language for this course.  
+
 The program is a GPA calculator. The user is asked to provide the following information:
 
 A.	The number of courses the user has completed.  
