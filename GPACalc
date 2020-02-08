@@ -1,0 +1,85 @@
+# List to store the credit hours for each course
+credits_taken = []
+
+# List to store the grades for each course
+grades = []
+
+
+# Function to convert the letter grade to number grade. Used if-else statements. Returns the number grade.
+def grade_conversion(grade):
+    if grade == "A+":
+        numerical_grade = 4.0
+    elif grade == "A":
+        numerical_grade = 4.0
+    elif grade == "A-":
+        numerical_grade = 3.7
+    elif grade == "B+":
+        numerical_grade = 3.3
+    elif grade == "B":
+        numerical_grade = 3.0
+    elif grade == "B-":
+        numerical_grade = 2.7
+    elif grade == "C+":
+        numerical_grade = 2.3
+    elif grade == "C":
+        numerical_grade = 2.0
+    elif grade == "C-":
+        numerical_grade = 1.7
+    elif grade == "D+":
+        numerical_grade = 1.3
+    elif grade == "D":
+        numerical_grade = 1.0
+    elif grade == "F":
+        numerical_grade = 0.0
+    else:
+        print("Incorrect input")
+    return numerical_grade
+
+
+# Function to collect the data from the user to calculate the GPA
+def data():
+    i = 1  # Initializing statement for the while loop.
+    # While loop continues till the the condition (i <= n) is true. This saves memory and redundancy.
+    # This keeps asking the user to input the number of credits and grade for a course till he/she has entered data for all the courses.
+    while i <= n:
+        # Asks the user to enter the number of credits the course is for, and adds it to the list.
+        credit = float(input("Enter the number of credits for course " + str(i) + ": "))
+        credits_taken.append(credit)
+        # Asks the user to enter the letter grade for the course, convert it to number grade and adds it to the list, in the same order as the credits.
+        grade = input("Enter your letter grade for course " + str(i) + ": ")
+        number_grade = grade_conversion(grade) # Uses the function created to change letter grade to number grade.
+        grades.append(number_grade)
+        print()
+        i = i + 1
+
+
+# The main program begins from here.
+# Prints the header for the output.
+print('********************************************************')
+print("||                   GPA CALCULATOR                   ||")
+print('********************************************************')
+# # Asks the user to input the number of courses he/she is taking.
+n = int(input("How many courses have you taken? "))
+print()
+
+data()
+total = float(0.0)
+# Uses the already-defined sum function. This function provides us with the sum of all the elements in a list.
+total_credits = sum(credits_taken)
+# Multiplies the number of credits for a course with the grade obtained in the course, and adds them together to find out the total grade points.
+for ele in range(n):
+    total = total + grades[ele] * credits_taken[ele]
+# Calculates the GPA by dividing the grade points by the total number of credits.
+gpa = total / total_credits
+# Prints the end result. Tells the number of credits completed and the GPA rounded to 2 decimal places.
+print("-------------------------------------------------------")
+print("The total number of credits you have earned is " + str(int(total_credits)))
+print("*******************************************************")
+print("##                Your GPA is " + str(round(gpa, 2)) + "                    ##")
+print("*******************************************************")
+print()
+# Prints a comment about your GPA.
+if bool(gpa >= 2.0):
+    print("You are in good academic standing")
+else:
+    print("You need to improve your GPA")
